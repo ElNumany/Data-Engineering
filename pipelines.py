@@ -1,3 +1,9 @@
+import sys
+
 import pandas as pd 
 
-print ('job of pandas successfullyyy :3')
+
+print ('sys.argv')
+
+day = sys.argv[1]
+print (f'job of day = f{day}')
