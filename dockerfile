@@ -1,8 +1,8 @@
-from python:3.9.1
+FROM python:3.9.1
 
-run pip install pandas 
+RUN pip install pandas 
 
 WORKDIR /app
-copy pipelines.py pipelines.py
+COPY pipelines.py pipelines.py
 
-entrypoint ["bash"]
+ENTRYPOINT ["bash"]
