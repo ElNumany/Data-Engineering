@@ -14,18 +14,20 @@ services:
      restart: always
 
 
-docker run -it \ 
-    -e POSTGRES_USER="root" \
-    -e POSTGRES_PASSWORD="root" \
-    -e POSTGRES_DB:="ny_taxi" \
-    -v /workspaces/Data-Engineering/ny_taxi_postgress_data:/var/lib/postgresql/data \
-    -p 5432:5432 \ 
-postgress:13
 
-docker run -it \ 
-    -e POSTGRES_USER="root" \
-    -e POSTGRES_PASSWORD="root" \
-    -e POSTGRES_DB:="ny_taxi" \
-    -v $(pwd)/ny_taxi_postgress_data:/var/lib/postgresql/data \
-    -p 5432:5432 \ 
-postgress:13
+docker run --name my_postgres \
+-e POSTGRES_USER="root" \
+-e POSTGRES_PASSWORD="root" \
+-e POSTGRES_DB="ny_taxi" \
+-v $(pwd)/ny_taxi_postgress_data:/var/lib/postgresql/data \
+-p 5432:5432 \
+-d postgres:13
+
+
+ docker run -it I
+     -е PGADMIN_DEFAULT_EMAIL="admin@admin. com"
+     -е PGADMIN_DEFAULT_PASSWORD="root"
+     -р 8080:80
+     --network-pg-network
+     --name pgadmin
+      dpage/pgadmin4
