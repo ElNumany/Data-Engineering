@@ -28,11 +28,13 @@ services:
       - pg-network
 
   pgcli:
-    image: python:3.9-slim
+    build:
+      context: .
+      dockerfile: Dockerfile.pgcli
     container_name: pgcli
     depends_on:
       - postgres
-    entrypoint: ["sh", "-c", "pip install pgcli && pgcli -h postgres -U root -d ny_taxi"]
+    entrypoint: ["sh", "-c", "pgcli -h postgres -U root -d ny_taxi"]
     environment:
       PGPASSWORD: root
     networks:
