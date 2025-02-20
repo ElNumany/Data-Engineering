@@ -34,7 +34,7 @@ services:
     container_name: pgcli
     depends_on:
       - postgres
-    entrypoint: ["sh", "-c", "pgcli -h postgres -U root -d ny_taxi"]
+    entrypoint: ["sh", "-c", "pgcli -h my_postgres -U root -d ny_taxi"]
     environment:
       PGPASSWORD: root
     networks:
