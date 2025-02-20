@@ -9,7 +9,7 @@ services:
     volumes:
       - ./ny_taxi_postgress_data:/var/lib/postgresql/data
     ports:
-      - "8080:8080"
+      - "5432:5432"
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "root"]
       interval: 5s
@@ -23,14 +23,14 @@ services:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: root
     ports:
-      - "8080:80"
+      - "8081:80"
     networks:
       - pg-network
 
   pgcli:
     build:
       context: .
-      dockerfile: dockerfile.pgcli
+      dockerfile: Dockerfile.pgcli
     container_name: pgcli
     depends_on:
       - postgres
