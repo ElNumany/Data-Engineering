@@ -30,7 +30,7 @@ services:
   pgcli:
     build:
       context: .
-      dockerfile: Dockerfile.pgcli
+      dockerfile: dockerfile.pgcli
     container_name: pgcli
     depends_on:
       - postgres
